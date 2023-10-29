@@ -1,0 +1,3 @@
+Master Password ie7j-spu7-dfsq
+Database Name odoo
+Password 1234

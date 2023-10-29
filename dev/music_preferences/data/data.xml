@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="jazz-pr" model="hr.employee.preference.music">
+            <field name="name">Jazz</field>
+        </record>
+        <record id="rock-pr" model="hr.employee.preference.music">
+            <field name="name">Rock</field>
+        </record>
+        <record id="pop-pr" model="hr.employee.preference.music">
+            <field name="name">Pop</field>
+        </record>
+        <record id="blues-pr" model="hr.employee.preference.music">
+            <field name="name">Blues</field>
+        </record>
+        <record id="classics-pr" model="hr.employee.preference.music">
+            <field name="name">Classics</field>
+        </record>
+    </data>
+</odoo>
