@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="developers_tree_view" model="ir.ui.view">
+        <field name="name">developers_management.developer.tree</field>
+        <field name="model">developers_management.developer</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name" />
+                <field name="phone" attrs="{'invisible': [('type', '=', 'out-stuff')]}"/>
+                <field name="type" />
+                <field name="global_identification" readonly="1" attrs="{'invisible': ['|', ('name', '=', False), ('type', '=', False)]}"/>
+                <field name="email" />
+                <field name="address" />
+                <field name="date_of_birth" />
+                <field name="company" />
+                <field name="position" />
+            </tree>
+        </field>
+    </record>
+    <record id="developers_search" model="ir.ui.view">
+        <field name="name">developers_management.developer.search</field>
+        <field name="model">developers_management.developer</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="phone"/>
+                <field name="type"/>
+                <filter string="Employment type: Front end" name="front-end" domain="[('type', '=','front-end')]"/>
+                <filter string="Employment type: Backend" name="backend" domain="[('type', '=','backend')]"/>
+                <filter string="Employment type: Full stack" name="fullstack" domain="[('type', '=','fullstack')]"/>
+                <filter string="Employment type: Out stuff" name="out-stuff" domain="[('type', '=','out-stuff')]"/>
+                <group expand="0" string="Group By">
+                    <filter string="Employment type" name="type" context="{'group_by': 'type'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="developers_form_view" model="ir.ui.view">
+        <field name="name">developers_management.developer.form</field>
+        <field name="model">developers_management.developer</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name" />
+                        <field name="type" />
+                        <field name="global_identification" readonly="1" attrs="{'invisible': ['|', ('name', '=', False), ('type', '=', False)]}"/>
+                        <field name="phone" attrs="{'invisible': [('type', '=', 'out-stuff')]}"/>
+                        <field name="email" />
+                        <field name="address" />
+                        <field name="date_of_birth" />
+                        <field name="company" />
+                        <field name="position" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="developers_tree_view_action">
+        <field name="name">Developers</field>
+        <field name="res_model">developers_management.developer</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <record model="ir.actions.act_window" id="developers_form_view_action">
+        <field name="name">Add developer</field>
+        <field name="res_model">developers_management.developer</field>
+        <field name="view_mode">form</field>
+    </record>
+</odoo>

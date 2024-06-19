@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="company_tree_view" model="ir.ui.view">
+        <field name="name">developers_management.company.tree</field>
+        <field name="model">developers_management.company</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name" />
+                <field name="address" />
+                <field name="developers" />
+            </tree>
+        </field>
+    </record>
+    <record id="company_form_view" model="ir.ui.view">
+        <field name="name">developers_management.company.form</field>
+        <field name="model">developers_management.company</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name" />
+                        <field name="address" />
+                        <field name="developers" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="company_tree_view_action">
+        <field name="name">Company</field>
+        <field name="res_model">developers_management.company</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <record model="ir.actions.act_window" id="company_form_view_action">
+        <field name="name">Add company</field>
+        <field name="res_model">developers_management.company</field>
+        <field name="view_mode">form</field>
+    </record>
+</odoo>
